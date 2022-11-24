@@ -1,4 +1,13 @@
 import os
+import PyPDF2
+
+
+# extract data from pdf file
+def pdf_data_extract_extractor(pdf_file):
+    with open(pdf_file, 'rb') as source_file:
+        reader = PyPDF2.PdfFileReader(source_file)
+        page = reader.getPage(0)
+        print(page.extractText())
 
 
 # get path to save converted file
@@ -22,6 +31,10 @@ def get_pdf_file():
             print('Wrong path Or The file that has been entered is not pdf')
         else:
             break
+    saved_files_location = get_destination_path_to_save()
+    pdf_data_extract_extractor(pdf_file)
+
+
 
 
 get_pdf_file()
