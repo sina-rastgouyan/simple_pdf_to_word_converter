@@ -1,5 +1,16 @@
 import os
-import sys
+
+
+# get path to save converted file
+def get_destination_path_to_save():
+    while True:
+        path_to_save = input(r'please enter a path to save converted file:''\n')
+        if not os.path.isdir(path_to_save):
+            os.makedirs(f'{path_to_save}', exist_ok=False)
+            break
+        break
+
+    return path_to_save
 
 
 # get pdf file from user.
