@@ -5,10 +5,13 @@ import shutil
 
 # extract data from pdf file
 def pdf_data_extract_extractor(pdf_file):
+    text = ''
     with open(pdf_file, 'rb') as source_file:
         reader = PyPDF2.PdfFileReader(source_file)
-        page = reader.getPage(0)
-        text = page.extractText()
+        all_pages = reader.getNumPages()
+        for page_obj in range(all_pages):
+            page = reader.getPage(page_obj)
+            text += page.extractText()
     return text
 
 
