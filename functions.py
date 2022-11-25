@@ -49,4 +49,8 @@ def get_pdf_file():
     transformer(saved_files_location, text_extracted, extract_file_name)
 
 
-get_pdf_file()
+def run():
+    get_pdf_file()
+
+
+run()
